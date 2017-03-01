@@ -10,20 +10,20 @@ The easiest way to install is inside a virtualenv and with our python-freshdesk 
 
 1. Create the virtualenv (Python 3!) and activate it:
 
-```
-$ git clone https://github.com/alkivi-sas/3cx-freshdesk-macos
-$ virtualenv -p python3 3cx-freshdesk-macos
-$ cd 3cx-freshdesk-macos
-$ source bin/activate
-$ git clone https://github.com/alkivi-sas/python-freshdesk.git
-$ pip install ./python-freshdesk
-```
+    ```
+    $ git clone https://github.com/alkivi-sas/3cx-freshdesk-macos
+    $ virtualenv -p python3 3cx-freshdesk-macos
+    $ cd 3cx-freshdesk-macos
+    $ source bin/activate
+    $ git clone https://github.com/alkivi-sas/python-freshdesk.git
+    $ pip install ./python-freshdesk
+    ```
 
 2. Change the conf file :
 
-   ```
-   $ vim freshdesk-example.conf
-   ```
+    ```
+    $ vim freshdesk-example.conf
+    ```
 Change values with your platform, you can have your caller ID at https://domain.freshdesk.com/agents, you click on the agent and you 'll have the id in the url
 
     ```
@@ -33,6 +33,6 @@ Change values with your platform, you can have your caller ID at https://domain.
 
 ## Usage
 
-```
-$ ./3cx_to_fresdesk.py -c 0836656565
-```
+    ```
+    $ ./3cx_to_fresdesk.py -c 0836656565
+    ```
