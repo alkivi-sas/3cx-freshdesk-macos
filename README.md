@@ -30,9 +30,10 @@ Change values with your platform, you can have your caller ID at https://domain.
     $ mv freshdesk-example.conf freshdesk.conf
     ```
 
-
 ## Usage
 
     ```
     $ ./3cx_to_fresdesk.py -c 0836656565
     ```
+
+    from 3CX softphone on macOS
