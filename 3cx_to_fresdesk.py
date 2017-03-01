@@ -16,7 +16,7 @@ def usage():
     """
     print("Usage: "+sys.argv[0]+" -h -d -your own options"+"\n")
     print("-h     --help            Display help")
-    print("-c     --caller_number   Caller's phone number"):
+    print("-c     --caller_number   Caller's phone number")
 
 def main(argv):
     """Where the magic happen
