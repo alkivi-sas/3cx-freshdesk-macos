@@ -9,6 +9,7 @@ import sys
 import logging
 import requests
 import json
+import os
 from freshdesk.api import API
 
 def usage():
@@ -21,7 +22,6 @@ def usage():
 def main(argv):
     """Where the magic happen
     """
-
     import getopt
     # initiate that opt use
     caller_number = None
@@ -42,7 +42,8 @@ def main(argv):
 
     print("Loading conf file")
     import configparser
-    config_file = 'freshdesk.conf'
+    config_file = os.path.dirname(os.path.realpath(__file__))+'/freshdesk.conf'
+    print (config_file)
     config = configparser.RawConfigParser()
     config.read(config_file)
     domain = config.get('freshdesk', 'domain')
