@@ -32,10 +32,9 @@ Change values with your platform, you can have your caller ID at https://domain.
 
 ## Usage
 From a terminal
-
-    ```
-    $ ./3cx_to_fresdesk.py -c 0836656565
-    ```
+   ```
+   $ ./3cx_to_fresdesk.py -c 0836656565
+   ```
 from 3CX softphone on macOS
 Go to parameter --> Advanced --> Enable execute program on inbound calls and put
     
