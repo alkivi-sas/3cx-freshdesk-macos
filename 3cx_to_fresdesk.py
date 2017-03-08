@@ -48,7 +48,7 @@ def main(argv):
     config.read(config_file)
     domain = config.get('freshdesk', 'domain')
     api_key = config.get('freshdesk', 'api_key')
-    agent_id = config.get('freshdesk', 'agent_id')
+    agent_id = int(config.get('freshdesk', 'agent_id'))
 
     # Do your code here
     print("Program Start")
