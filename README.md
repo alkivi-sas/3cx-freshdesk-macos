@@ -4,6 +4,9 @@ A library for the [Freshdesk](http://freshdesk.com/) helpdesk cti system for Pyt
 
 Support for the v2 API CTI
 
+## On the freshdesk platform
+You have to be sure that the application 'CTI' has been installed on your platform
+
 ## Installation
 
 The easiest way to install is inside a virtualenv and with our python-freshdesk fork (https://github.com/alkivi-sas/python-freshdesk)
@@ -25,7 +28,7 @@ The easiest way to install is inside a virtualenv and with our python-freshdesk 
     $ vim freshdesk-example.conf
     ```
 Change values with your platform, you can have your caller ID going to a ticket you resolved and you put '.json' at the end of the URL
-Example :  https://domain.freshdesk.com/helpdesk/tickets/62.json , you will see responder_id. It is your caller ID. 
+Example :  https://domain.freshdesk.com/helpdesk/tickets/62.json , you will see responder_id. It is your caller ID.
 
     ```
     $ mv freshdesk-example.conf freshdesk.conf
