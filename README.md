@@ -29,7 +29,7 @@ Change values with your platform, you can have your caller ID at https://domain.
     ```
     $ mv freshdesk-example.conf freshdesk.conf
     ```
-2. Create the log file :
+3. Create the log file :
 
     ```
     $ sudo touch /var/log/3cx-freshdesk-macos.log
