@@ -34,17 +34,10 @@ Example :  https://domain.freshdesk.com/helpdesk/tickets/62.json , you will see 
     $ mv freshdesk-example.conf freshdesk.conf
     ```
 3. Create the log file :
-
-```
-$ sudo touch /var/log/3cx-freshdesk-macos.log
-$ sudo chmod 766 /var/log/3cx-freshdesk-macos.log
-```
-
-
+    ```bash
     $ sudo touch /var/log/3cx-freshdesk-macos.log
     $ sudo chmod 766 /var/log/3cx-freshdesk-macos.log
-
-
+    ```
 ## Usage
 1. From a terminal :
 
