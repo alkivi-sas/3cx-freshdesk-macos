@@ -24,7 +24,8 @@ The easiest way to install is inside a virtualenv and with our python-freshdesk 
     ```
     $ vim freshdesk-example.conf
     ```
-Change values with your platform, you can have your caller ID at https://domain.freshdesk.com/agents, you click on the agent and you 'll have the id in the url
+Change values with your platform, you can have your caller ID going to a ticket you resolved and you put '.json' at the end of the URL
+Example :  https://domain.freshdesk.com/helpdesk/tickets/62.json , you will see responder_id. It is your caller ID. 
 
     ```
     $ mv freshdesk-example.conf freshdesk.conf
