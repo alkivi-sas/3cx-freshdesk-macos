@@ -51,5 +51,5 @@ Path :
    ```     
 Parameters :
    ```
-   --args /Users/myuser/path_of_3cx-freshdesk-macos/3cx_to_fresdesk.py -c 0836656565 -c %CallerNumber%
+   --args /Users/myuser/path_of_3cx-freshdesk-macos/3cx_to_fresdesk.py -c %CallerNumber%
    ```  
