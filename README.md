@@ -29,6 +29,12 @@ Change values with your platform, you can have your caller ID at https://domain.
     ```
     $ mv freshdesk-example.conf freshdesk.conf
     ```
+2. Create the log file :
+
+    ```
+    $ sudo touch /var/log/3cx-freshdesk-macos.log
+    $ sudo chmod 766 /var/log/3cx-freshdesk-macos.log
+    ```
 
 ## Usage
 1. From a terminal :
@@ -38,12 +44,12 @@ Change values with your platform, you can have your caller ID at https://domain.
    ```
 2. from 3CX softphone on macOS :
 Go to parameter --> Advanced --> Enable execute program on inbound calls and put
-    
+
 Path :
    ```
-   /Users/myuser/path_of_3cx-freshdesk-macos/bin/python3 /Users/myuser/path_of_3cx-freshdesk-macos/3cx_to_fresdesk.py -c 0836656565
+   /Users/myuser/path_of_3cx-freshdesk-macos/bin/python3
    ```     
 Parameters :
    ```
-   -c %CallerNumber%
+   --args /Users/myuser/path_of_3cx-freshdesk-macos/3cx_to_fresdesk.py -c 0836656565 -c %CallerNumber%
    ```  

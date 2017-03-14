@@ -22,6 +22,8 @@ def usage():
 def main(argv):
     """Where the magic happen
     """
+    logging.basicConfig(filename='/var/log/3cx-freshdesk-macos.log',level=logging.DEBUG)
+
     import getopt
     # initiate that opt use
     caller_number = None
@@ -39,11 +41,13 @@ def main(argv):
             sys.exit()
         elif opt in ("-c", "--caller_number"):
             caller_number = arg
+            caller_number = '+' + caller_number
+            logging.info("Caller Number :{}".format(caller_number))
 
-    print("Loading conf file")
+    logging.info("Loading conf file")
     import configparser
     config_file = os.path.dirname(os.path.realpath(__file__))+'/freshdesk.conf'
-    print (config_file)
+    logging.info(config_file)
     config = configparser.RawConfigParser()
     config.read(config_file)
     domain = config.get('freshdesk', 'domain')
@@ -51,10 +55,10 @@ def main(argv):
     agent_id = int(config.get('freshdesk', 'agent_id'))
 
     # Do your code here
-    print("Program Start")
+    logging.info("Program Start")
     freshdesk_API = API(domain, api_key, version=2)
     pop_call =  freshdesk_API.cti.pop_call(caller_number,agent_id)
-    print(pop_call)
+    logging.info(pop_call)
 
 if __name__ == "__main__":
     try:
