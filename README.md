@@ -11,7 +11,23 @@ You have to be sure that the application 'CTI' has been installed on your platfo
 
 The easiest way to install is inside a virtualenv and with our python-freshdesk fork (https://github.com/alkivi-sas/python-freshdesk)
 
-1. Create the virtualenv (Python 3!) and activate it:
+1. If you don't have its already, Install Brew, Python3 and virtualenv
+
+First, Install X-Code from the app store
+
+    ```
+    $ xcode-select --install
+    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    $ export PATH=/usr/local/bin:$PATH
+    ```
+Restart your Terminal
+
+    ```
+    $ brew install python3
+    $ pip install virtualenv
+    ```
+
+2. Create the virtualenv (Python 3!) and activate it:
 
     ```
     $ git clone https://github.com/alkivi-sas/3cx-freshdesk-macos
@@ -22,7 +38,7 @@ The easiest way to install is inside a virtualenv and with our python-freshdesk 
     $ pip install ./python-freshdesk
     ```
 
-2. Change the conf file :
+3. Change the conf file :
 
     ```
     $ vim freshdesk-example.conf
@@ -33,7 +49,7 @@ Example :  https://domain.freshdesk.com/helpdesk/tickets/62.json , you will see 
     ```
     $ mv freshdesk-example.conf freshdesk.conf
     ```
-3. Create the log file :
+4. Create the log file :
     ```bash
     $ sudo touch /var/log/3cx-freshdesk-macos.log
     $ sudo chmod 766 /var/log/3cx-freshdesk-macos.log
