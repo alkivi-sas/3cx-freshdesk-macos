@@ -24,35 +24,38 @@ Restart your Terminal
 
     ```
     $ brew install python3
-    $ pip install virtualenv
+    $ pip3 install virtualenv
     ```
 
 2. Create the virtualenv (Python 3!) and activate it:
 
     ```
     $ git clone https://github.com/alkivi-sas/3cx-freshdesk-macos
-    $ virtualenv -p python3 3cx-freshdesk-macos
-    $ cd 3cx-freshdesk-macos
-    $ source bin/activate
-    $ git clone https://github.com/alkivi-sas/python-freshdesk.git
-    $ pip install ./python-freshdesk
+    $ virtualenv -p python3 ~/venv/3cx-freshdesk-macos
+    $ source ~/venv/3cx-freshdesk-macos/bin/activate
+    $ pip install -r requirements.txt
     ```
 
 3. Change the conf file :
 
     ```
-    $ vim freshdesk-example.conf
+    $ cp freshdesk-example.conf freshdesk.conf
+    $ vim freshdesk.conf
     ```
 Change values with your platform, you can have your caller ID going to a ticket you resolved and you put '.json' at the end of the URL
 Example :  https://domain.freshdesk.com/helpdesk/tickets/62.json , you will see responder_id. It is your caller ID.
 
-    ```
-    $ mv freshdesk-example.conf freshdesk.conf
-    ```
+For the API Key :
+- Login to your Support Portal
+- Click on your profile picture on the top right corner of your portal
+- Go to Profile settings Page
+- Your API key will be available below the change password section to your right
+
 4. Create the log file :
     ```bash
     $ sudo touch /var/log/3cx-freshdesk-macos.log
-    $ sudo chmod 766 /var/log/3cx-freshdesk-macos.log
+    $ sudo chmod 660 /var/log/3cx-freshdesk-macos.log
+    $ sudo chown $(whoami):staff /var/log/3cx-freshdesk-macos.log
     ```
 ## Usage
 1. From a terminal :
