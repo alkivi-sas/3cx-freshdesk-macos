@@ -41,7 +41,6 @@ def main(argv):
             sys.exit()
         elif opt in ("-c", "--caller_number"):
             caller_number = arg
-            caller_number = '+' + caller_number
             logging.info("Caller Number :{}".format(caller_number))
 
     logging.info("Loading conf file")
