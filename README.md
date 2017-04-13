@@ -33,6 +33,7 @@ Restart your Terminal
     $ git clone https://github.com/alkivi-sas/3cx-freshdesk-macos
     $ virtualenv -p python3 ~/venv/3cx-freshdesk-macos
     $ source ~/venv/3cx-freshdesk-macos/bin/activate
+    $ cd 3cx-freshdesk-macos
     $ pip install -r requirements.txt
     ```
 
