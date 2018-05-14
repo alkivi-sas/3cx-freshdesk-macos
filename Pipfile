@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+python-freshdesk = { git = 'https://github.com/alkivi-sas/python-freshdesk.git' }
 
 [dev-packages]
 pylint = "*"

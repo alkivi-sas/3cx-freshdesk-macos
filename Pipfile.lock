@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2158040de16b08868c992f5647611783821aaf540dbd5f3190dbb655f1e00db8"
+            "sha256": "233965dc66ad3289b5861d391e01f5b0cb83a92fa9000c9273ed5899eee43141"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -15,7 +15,11 @@
             }
         ]
     },
-    "default": {},
+    "default": {
+        "python-freshdesk": {
+            "git": "https://github.com/alkivi-sas/python-freshdesk.git"
+        }
+    },
     "develop": {
         "astroid": {
             "hashes": [
