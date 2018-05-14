@@ -2,7 +2,7 @@
 # -*-coding:utf-8 -*
 
 """
-Script to do CTI with 3CX and Freshdesk on macOS
+Script to get Company name from a phone number based on freshdesk contacts and open wiki
 """
 
 import sys
@@ -11,7 +11,8 @@ import requests
 import json
 import os
 from freshdesk.api import API
-import subprocess
+import urllib.parse
+import webbrowser
 
 def usage():
     """Small helper to use when --help is pass
@@ -23,7 +24,7 @@ def usage():
 def main(argv):
     """Where the magic happen
     """
-    logging.basicConfig(filename='/var/log/3cx-freshdesk-macos.log',level=logging.DEBUG)
+    logging.basicConfig(filename='/var/log/call_to_wiki.log',level=logging.DEBUG)
 
     import getopt
     # initiate that opt use
@@ -51,20 +52,33 @@ def main(argv):
     config = configparser.RawConfigParser()
     config.read(config_file)
     domain = config.get('freshdesk', 'domain')
+    wiki_url = config.get('freshdesk', 'wiki_url')
     api_key = config.get('freshdesk', 'api_key')
-    agent_id = int(config.get('freshdesk', 'agent_id'))
-    postscript = config.get('freshdesk', 'postscript')
+    freshdesk_API = API(domain, api_key, version=2)
 
     # Do your code here
     logging.info("Program Start")
-    freshdesk_API = API(domain, api_key, version=2)
-    pop_call =  freshdesk_API.cti.pop_call(caller_number,agent_id)
-    logging.info(pop_call)
+    logging.info("Search Contact")
+    search_query = "\"mobile:%27{}%27\"".format(urllib.parse.quote_plus(caller_number))
+    logging.info("Search Contact Query : {}".format(search_query))
+    contacts = freshdesk_API.contacts.search_contact(search_query)
+    if len(contacts['results']) > 0:
+        if contacts['results'][0]['company_id']:
+            first_contact_company_id =  contacts['results'][0]['company_id']
+            logging.info("Company ID : {}".format(first_contact_company_id))
+            logging.info("Search Company Name")
+            company = freshdesk_API.companies.get_company(first_contact_company_id)
+            logging.info(f"Company Name : {company}")
 
-    #call to wiki
-    dirname = os.path.dirname(os.path.abspath(__file__))
-    postscript_path = os.path.join(dirname,postscript)
-    subprocess.call(postscript_path+" -c {}".format(caller_number), shell=True)
+            url = wiki_url + str(company)
+            # MacOS
+            chrome_path = "open -a /Applications/Google\ Chrome.app %s"
+            webbrowser.get(chrome_path).open(url)
+
+        else:
+            logging.info("This contact doesn't have a company")
+    else:
+        logging.info("No contact with this number")
 
 
 
