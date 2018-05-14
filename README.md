@@ -11,7 +11,7 @@ You have to be sure that the application 'CTI' has been installed on your platfo
 
 The easiest way to install is inside a virtualenv and with our python-freshdesk fork (https://github.com/alkivi-sas/python-freshdesk)
 
-1. If you don't have its already, Install Brew, Python3 and virtualenv
+1. If you don't have its already, Install Brew, Python3 and Pipenv
 
 First, Install X-Code from the app store
 
@@ -24,17 +24,17 @@ Restart your Terminal
 
     ```
     $ brew install python3
-    $ pip3 install virtualenv
+    $ brew install pipenv
     ```
 
-2. Create the virtualenv (Python 3!) and activate it:
+2. Clone and pipenv:
 
     ```
     $ git clone https://github.com/alkivi-sas/3cx-freshdesk-macos
-    $ virtualenv -p python3 ~/venv/3cx-freshdesk-macos
-    $ source ~/venv/3cx-freshdesk-macos/bin/activate
     $ cd 3cx-freshdesk-macos
-    $ pip install -r requirements.txt
+    $ pipenv install
+    $ pipenv shell
+    $ which python #result of this commande will help you to config 3CX
     ```
 
 3. Change the conf file :
@@ -57,6 +57,8 @@ For the API Key :
     $ sudo touch /var/log/3cx-freshdesk-macos.log
     $ sudo chmod 660 /var/log/3cx-freshdesk-macos.log
     $ sudo chown $(whoami):staff /var/log/3cx-freshdesk-macos.log
+    $ sudo chmod 660 /var/log/call_to_wiki.log
+    $ sudo chown $(whoami):staff /var/log/call_to_wiki.log
     ```
 ## Usage
 1. From a terminal :
@@ -69,7 +71,7 @@ Go to parameter --> Advanced --> Enable execute program on inbound calls and put
 
 Path :
    ```
-   /Users/myuser/path_of_3cx-freshdesk-macos/bin/python3
+   /Users/myuser/.local/share/virtualenvs/3cx-freshdesk-macos-rz7dl8z3/bin/python #you can know this dir using which python in the pipenv shell
    ```     
 Parameters :
    ```
