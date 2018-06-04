@@ -57,6 +57,7 @@ For the API Key :
     $ sudo touch /var/log/3cx-freshdesk-macos.log
     $ sudo chmod 660 /var/log/3cx-freshdesk-macos.log
     $ sudo chown $(whoami):staff /var/log/3cx-freshdesk-macos.log
+    $ sudo touch /var/log/call_to_wiki.log
     $ sudo chmod 660 /var/log/call_to_wiki.log
     $ sudo chown $(whoami):staff /var/log/call_to_wiki.log
     ```
