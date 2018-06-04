@@ -63,8 +63,11 @@ def main(argv):
 
     #call to wiki
     dirname = os.path.dirname(os.path.abspath(__file__))
+    python_path = sys.executable
+    logging.info(f"Python Path : {python_path}")
+    logging.info(f"Dirname : {dirname}")
     postscript_path = os.path.join(dirname,postscript)
-    subprocess.call(postscript_path+" -c {}".format(caller_number), shell=True)
+    subprocess.call([python_path,postscript_path,"-c","{}".format(caller_number)])
 
 
 
