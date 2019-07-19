@@ -53,7 +53,14 @@ def main(argv):
     domain = config.get('freshdesk', 'domain')
     api_key = config.get('freshdesk', 'api_key')
     agent_id = int(config.get('freshdesk', 'agent_id'))
-    postscript = config.get('freshdesk', 'postscript')
+
+    postscript = None
+    if config.has_option('freshdesk', 'postscript'):
+        postscript = config.get('freshdesk', 'postscript')
+
+    if len(caller_number) < 4:
+        logging.info('Exiting because internal')
+        exit(0)
 
     # Do your code here
     logging.info("Program Start")
@@ -62,12 +69,13 @@ def main(argv):
     logging.info(pop_call)
 
     #call to wiki
-    dirname = os.path.dirname(os.path.abspath(__file__))
-    python_path = sys.executable
-    logging.info(f"Python Path : {python_path}")
-    logging.info(f"Dirname : {dirname}")
-    postscript_path = os.path.join(dirname,postscript)
-    subprocess.call([python_path,postscript_path,"-c","{}".format(caller_number)])
+    if postscript:
+        dirname = os.path.dirname(os.path.abspath(__file__))
+        python_path = sys.executable
+        logging.info(f"Python Path : {python_path}")
+        logging.info(f"Dirname : {dirname}")
+        postscript_path = os.path.join(dirname,postscript)
+        subprocess.call([python_path,postscript_path,"-c","{}".format(caller_number)])
 
 
 
