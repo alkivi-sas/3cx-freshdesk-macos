@@ -62,6 +62,10 @@ def main(argv):
         logging.info('Exiting because internal')
         exit(0)
 
+    if caller_number == 'MakeCall':
+        logging.info('Exiting because MakeCall')
+        exit(0)
+
     # Do your code here
     logging.info("Program Start")
     freshdesk_API = API(domain, api_key, version=2)
